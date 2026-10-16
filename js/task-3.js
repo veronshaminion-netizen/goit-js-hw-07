@@ -1,15 +1,10 @@
 'use strict';
 
-const input = document.querySelector('input');
-const button = document.querySelector('button');
-const list = document.querySelector('ul');
+const input = document.querySelector('#name-input');
+const button = document.querySelector('#name-output');
 
-button.addEventListener('click', () => {
-  const value = input.value.trim();
-  if (value) {
-    const listItem = document.createElement('li');
-    listItem.textContent = value;
-    list.appendChild(listItem);
-    input.value = '';
-  }
-});
+const handleInput = event => {
+  button.textContent = event.currentTarget.value.trim() === '' ? 'Anonymous' : event.currentTarget.value;
+}
+
+input.addEventListener('input', handleInput);
